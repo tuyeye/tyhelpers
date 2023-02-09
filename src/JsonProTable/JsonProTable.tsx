@@ -292,7 +292,7 @@ const JsonProTable = <
   const [updateRow, setUpdateRow] = useState<Record<any, DataType>>();
 
   const tableRef = useRef<ActionType>();
-  const updateRef = useRef<JsonProTableUpdateType<DataType, ValueType>>();
+  const updateRef = useRef<JsonProTableUpdateType>();
 
   function createOptionCell(_columns: ProColumns<DataType, ValueType>[]) {
     const _props = props.JsonProTableProps;
