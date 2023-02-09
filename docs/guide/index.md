@@ -17,4 +17,4 @@ tyhelpers 是 SQHANFU.COM 在研发过程中或者其他工程涉及到的前端
 
 ## 问题反馈
 
-如果在使用过程中发现任何问题、或者有改善建议，欢迎在 GitHub Issues 进行反馈：https://github.com/umijs/dumi/issues
+如果在使用过程中发现任何问题、或者有改善建议，欢迎在 GitHub Issues 进行反馈：https://github.com/tuyeye/tyhelpers/issues

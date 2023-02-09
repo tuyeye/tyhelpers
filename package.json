@@ -1,7 +1,7 @@
 {
   "name": "tyhelpers",
   "version": "0.0.1",
-  "description": "A static site based on dumi",
+  "description": "sqhanfu.com react web project components",
   "license": "MIT",
   "scripts": {
     "build": "dumi build",
@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.0.1",
+    "@ant-design/pro-components": "^2.3.53",
     "@uiw/react-markdown-editor": "^5.11.1",
     "antd": "^5.1.6"
   },
