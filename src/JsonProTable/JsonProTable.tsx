@@ -4,13 +4,13 @@ import {
   ProColumns,
   ProFormColumnsType,
   ProFormProps,
+  ProSkeleton,
   ProTable,
   ProTableProps,
 } from '@ant-design/pro-components';
 import type { ParamsType } from '@ant-design/pro-provider';
-import { Popconfirm } from 'antd';
+import { Popconfirm, Space } from 'antd';
 import React, { useEffect, useRef, useState } from 'react';
-import BackDrop from '../BackDrop';
 import JsonFormItemEditer from './JsonFormItemEditer';
 import JsonProTableCreate from './JsonProTableCreate';
 import JsonProTablePicker from './JsonProTablePicker';
@@ -316,7 +316,19 @@ const JsonProTable = <
           onHeaderCell: () => ({
             style: { textAlign: 'center', minWidth: 150 },
           }),
-          onCell: () => ({ style: { textAlign: 'center' } }),
+          onCell: () => ({
+            style: {
+              position: 'relative',
+              // position:'absolute',
+              // width:'100%',
+              // height:'100%',
+              //  display:'flex',
+              // alignItems:'center',
+              // justifyContent:'center'
+              // alignItems:'center',
+              // justifyContent:'center'
+            },
+          }),
           search: false,
           valueType: 'option',
           title: '操作',
@@ -376,7 +388,20 @@ const JsonProTable = <
               );
             }
 
-            return _userOptionNodes;
+            return (
+              <>
+                <div
+                  style={{
+                    width: 'fit-content',
+                    margin: '0 auto',
+                  }}
+                >
+                  <Space size={[8, 16]} wrap>
+                    {_userOptionNodes}
+                  </Space>
+                </div>
+              </>
+            );
           },
         });
       }
@@ -418,7 +443,11 @@ const JsonProTable = <
   if (!(tableProps && columns) || props.JsonProTableProps?.JsonProTableLoading)
     return (
       props.JsonProTableProps?.customTableLoadingSpinNode ?? (
-        <BackDrop open tip="表格生成中，请稍候片刻..." />
+        <>
+          <div style={{ background: '#fafafa' }}>
+            <ProSkeleton type="list" pageHeader={false} />
+          </div>
+        </>
       )
     );
   return (
