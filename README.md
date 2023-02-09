@@ -7,11 +7,14 @@ sqhanfu.com react web project components
 
 ## Usage
 
-TODO
+```bash
+# install
 
-## Options
+$ npm install tyhelpers --save
+# or
+$ yarn add tyhelpers -s
 
-TODO
+```
 
 ## Development
 
