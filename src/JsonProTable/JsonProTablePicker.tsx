@@ -68,6 +68,8 @@ export declare type JsonProTablePicker<T, U, ValueType> = {
   request?: (params: any) => Promise<{ total: number; data: any[] }>;
 
   params?: object;
+
+  type?: 'radio' | 'checkbox';
 };
 
 function Page<T extends Record<string, any>, U, ValueType>(
@@ -89,9 +91,11 @@ function Page<T extends Record<string, any>, U, ValueType>(
         visible={visible}
         width={1200}
         bodyStyle={{
-          padding: 0,
-          minHeight: 650,
-          overflow: 'hidden',
+          height: 650,
+          overflowX: 'hidden',
+          overflowY: 'auto',
+          position: 'relative',
+          paddingTop: 20,
         }}
         destroyOnClose
         style={{ top: 30 }}
@@ -107,11 +111,18 @@ function Page<T extends Record<string, any>, U, ValueType>(
               <ContentLoading tip="表格生成中，请稍候片刻" height={600} />
             ),
           }}
-          scroll={{ x: 1300, y: 300 }}
+          cardProps={{
+            bodyStyle: { padding: 0 },
+          }}
+          search={{
+            labelWidth: 'auto',
+          }}
           pagination={{ showSizeChanger: true }}
           request={props.request}
           params={props.params}
-          rowSelection={{}}
+          rowSelection={{
+            type: props.type ?? 'checkbox',
+          }}
           tableAlertOptionRender={({ selectedRowKeys, selectedRows }) => {
             return props.tableAlertOptionRender(
               selectedRowKeys,
