@@ -408,6 +408,11 @@ export declare type MediaProps = {
    * 输入框修改回调函数
    */
   onChange?: (value: any) => void;
+
+  /**
+   * 视频播放编辑框的样式
+   */
+  videoHoverCardStyle?: React.CSSProperties;
 };
 
 const Media: FC<MediaProps> = (props) => {
