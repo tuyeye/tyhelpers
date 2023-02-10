@@ -265,7 +265,7 @@ export interface JsonProTableProps<T, U, ValueType>
      *    return `你确定要删除 ID 为 ${row.id} 的数据吗？`;
      * }
      */
-    removePopconfirmTitle?: (row: Record<any, any>) => string;
+    removePopconfirmTitle?: (row: Record<any, any>) => string | string;
 
     /**
      * 表格生成时的 loading 组件，若不喜欢自带的 loadign 全屏组件,可以通过此组件自定义
@@ -375,7 +375,13 @@ const JsonProTable = <
                   placement="left"
                   key="delete"
                   title={
-                    <>{_props.removePopconfirmTitle ?? '确定要删除吗？'}</>
+                    <>
+                      {typeof _props.removePopconfirmTitle === 'function'
+                        ? _props.removePopconfirmTitle(row)
+                        : typeof _props.removePopconfirmTitle === 'string'
+                        ? _props.removePopconfirmTitle
+                        : '确定要删除吗？'}
+                    </>
                   }
                   onConfirm={async () => {
                     if (_props.onRemove) {

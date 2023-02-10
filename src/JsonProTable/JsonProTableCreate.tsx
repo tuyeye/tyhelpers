@@ -140,9 +140,13 @@ function JsonProTableCreate<T extends Record<string, any>, ValueType>(
       width={500}
       trigger={
         props.customCreateTrigger ?? (
-          <Tooltip title="新建">
-            <PlusCircleOutlined className="ant-pro-table-list-toolbar-setting-item css-dev-only-do-not-override-hn22ht" />
-          </Tooltip>
+          <div className="ant-pro-table-list-toolbar-setting-item css-dev-only-do-not-override-hn22ht">
+            <span>
+              <Tooltip title="新建">
+                <PlusCircleOutlined />
+              </Tooltip>
+            </span>
+          </div>
         )
       }
       {...createProps}
