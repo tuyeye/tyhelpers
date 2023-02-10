@@ -1,6 +1,6 @@
 {
   "name": "tyhelpers",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "sqhanfu.com react web project components",
   "license": "MIT",
   "module": "dist/index.js",

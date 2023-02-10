@@ -180,7 +180,12 @@ const MediaImage: FC<FormItemProps & UsualProps> = (props) => {
 };
 
 // 视频组件
-const MediaVideo: FC<FormItemProps & UsualProps> = (props) => {
+const MediaVideo: FC<
+  FormItemProps &
+    UsualProps & {
+      videoHoverCardStyle?: React.CSSProperties;
+    }
+> = (props) => {
   // FormItem
   const { onChange, value, readonly, onRemove, style } = props;
 
@@ -237,7 +242,10 @@ const MediaVideo: FC<FormItemProps & UsualProps> = (props) => {
               controls
             />
             {(!readonly || onRemove) && (
-              <div className="tyhelpers-media-hover tyhelpers-media-hover-video">
+              <div
+                className="tyhelpers-media-hover tyhelpers-media-hover-video"
+                style={{ ...props.videoHoverCardStyle }}
+              >
                 <Space size="large" style={{ opacity: '0.85', fontSize: 15 }}>
                   {!readonly && (
                     <div
