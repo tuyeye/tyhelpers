@@ -276,6 +276,11 @@ export interface JsonProTableProps<T, U, ValueType>
      * 自定义编辑文字
      */
     customUpdateText?: string;
+
+    /**
+     * 操作栏是否 fixed 定位
+     */
+    optionCellFixed?: 'left' | 'right';
   };
 }
 
@@ -319,20 +324,12 @@ const JsonProTable = <
           onCell: () => ({
             style: {
               position: 'relative',
-              // position:'absolute',
-              // width:'100%',
-              // height:'100%',
-              //  display:'flex',
-              // alignItems:'center',
-              // justifyContent:'center'
-              // alignItems:'center',
-              // justifyContent:'center'
             },
           }),
           search: false,
           valueType: 'option',
           title: '操作',
-          // fixed: "right",
+          fixed: _props.optionCellFixed ?? false,
           render: (text, row, index, action, f) => {
             const _userOptionNodes: JSX.Element[] = [];
             _columns1.map((e) => {

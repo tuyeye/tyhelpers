@@ -10,7 +10,7 @@ import {
   ProTable,
 } from '@ant-design/pro-components';
 import { Button, message, Modal } from 'antd';
-import React, { useRef, useState } from 'react';
+import React, { FC, useRef, useState } from 'react';
 import BackDrop from '../BackDrop';
 
 /** FormItem 数据结构 */
@@ -99,7 +99,7 @@ export declare type JsonFormItemEditerProps = {
   ) => Promise<boolean>;
 };
 
-function JsonFormItemEditer(props: JsonFormItemEditerProps) {
+const JsonFormItemEditer: FC<JsonFormItemEditerProps> = (props) => {
   const {
     dataRequest,
     postRequest,
@@ -569,6 +569,6 @@ function JsonFormItemEditer(props: JsonFormItemEditerProps) {
       </Button>
     </ProCard>
   );
-}
+};
 
 export default JsonFormItemEditer;

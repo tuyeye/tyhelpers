@@ -1,10 +1,11 @@
 import { ProColumns, ProTableProps } from '@ant-design/pro-components';
+import type { ParamsType } from '@ant-design/pro-provider';
 import { Modal } from 'antd';
 import React, { useState } from 'react';
 import ContentLoading from './ContentLoading';
 import JsonProTable from './JsonProTable';
 
-export declare type JsonProTablePicker<T, U, ValueType> = {
+export declare type JsonProTablePickerProps<T, U, ValueType> = {
   /**
    * 请求 props 的异步方法，通常用于从后端请求 props 字符串，完成动态可配置的 props（可选）
    * @example
@@ -72,9 +73,13 @@ export declare type JsonProTablePicker<T, U, ValueType> = {
   type?: 'radio' | 'checkbox';
 };
 
-function Page<T extends Record<string, any>, U, ValueType>(
-  props: JsonProTablePicker<T, U, ValueType>,
-) {
+const JsonProTablePicker = <
+  DataType extends Record<string, any>,
+  Params extends ParamsType = ParamsType,
+  ValueType = 'text',
+>(
+  props: JsonProTablePickerProps<DataType, Params, ValueType>,
+) => {
   const [visible, setVisible] = useState<boolean>(false);
   return (
     <>
@@ -137,6 +142,6 @@ function Page<T extends Record<string, any>, U, ValueType>(
       </Modal>
     </>
   );
-}
+};
 
-export default Page;
+export default JsonProTablePicker;

@@ -1,6 +1,8 @@
 import RichText, { IMarkdownEditor } from '@uiw/react-markdown-editor';
 import React, { FC } from 'react';
 
+export declare type IMarkdownEditorProps = IMarkdownEditor;
+
 const MarkdownEditor: FC<IMarkdownEditor> = (props) => {
   return (
     <>
